@@ -1,58 +1,80 @@
-import "@fontsource/inter"; // Defaults to 400 weight
+import "@fontsource/inter";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
-import Intro from "./components/Intro";
-import KeyFeatures from "./components/KeyFeatures";
-import HowItWorks from "./components/HowItWorks";
-import ReminderAnalyze from "./components/ReminderAnalyze";
-import AboutUs from "./components/AboutUs";
-import AboutUsMission from "./components/AboutUsMission";
-import AboutUsTeam from "./components/AboutUsTeam";
-import ReviewAnalyzer from "./components/ReviewAnalyzer";
+import HomePage from "./pages/HomePage";
 import Login from "./components/Login";
+import SignUp from "./components/SingUp";
+import AboutPage from "./pages/AboutPage";
+import ContactUs from "./pages/ContactUs";
 
 function App() {
   return (
     <Router>
-      <Navbar />
+      <div className="min-h-screen">
+        <Routes>
+          {/* Home Page - includes navbar */}
+          <Route
+            path="/"
+            element={
+              <>
+                <Navbar />
+                <HomePage />
+              </>
+            }
+          />
+           {/* ContactUs Page - includes navbar */}
+          <Route
+            path="/contactus"
+            element={
+              <>
+                <Navbar />
+                <ContactUs/>
+              </>
+            } 
+            />
 
-      <Routes>
-        {/* Home Page */}
-        <Route
-          path="/"
-          element={
+          {/* Login Page - standalone without navbar */}
+          <Route path="/login" element={<>
+               <Navbar /> 
+               <Login /> </> } />
+          {/* SignUp Page - standalone with navbar */}
+          <Route path="/SignUp" element={<>
+               <Navbar /> 
+               <SignUp /> </> } />
+
+           
+         
+
+          {/* About Page - includes navbar */}
+          <Route
+            path="/about"
+            element={
+              <>
+                <Navbar />
+                <AboutPage />
+              </>
+            }
+          />
+
+          {/* Catch all other routes and redirect to home */}
+          <Route path="*" element={
             <>
-              <Intro />
-              <KeyFeatures />
-              <HowItWorks />
-              <ReminderAnalyze />
-              <AboutUs />
-              <AboutUsMission />
-              <AboutUsTeam />
-              <ReviewAnalyzer />
+              <Navbar />
+              <div className="min-h-screen flex items-center justify-center">
+                <div className="text-center">
+                  <h1 className="text-4xl font-bold text-gray-900 mb-4">404 - Page Not Found</h1>
+                  <p className="text-gray-600 mb-6">The page you're looking for doesn't exist.</p>
+                  <a href="/" className="bg-teal-600 text-white px-6 py-3 rounded-lg hover:bg-teal-700 transition-colors">
+                    Go Home
+                  </a>
+                </div>
+              </div>
             </>
-          }
-        />
-
-        {/* Login Page */}
-        <Route path="/login" element={<Login />} />
-
-        {/* About Page Example */}
-        <Route
-          path="/about"
-          element={
-            <>
-              <AboutUs />
-              <AboutUsMission />
-              <AboutUsTeam />
-            </>
-          }
-        />
-
-        {/* Add more pages here if needed */}
-      </Routes>
+          } />
+        </Routes>
+      </div>
     </Router>
   );
 }
