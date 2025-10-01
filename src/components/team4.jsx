@@ -1,6 +1,6 @@
 import React from "react";
 
-const CTA = () => {
+const team4 = () => {
   return (
     <section
       style={{
@@ -39,4 +39,4 @@ const CTA = () => {
   );
 };
 
-export default CTA;
+export default team4;

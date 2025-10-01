@@ -1,6 +1,6 @@
 import React from "react";
 
-const Features = () => {
+const team3 = () => {
   return (
     <section style={{ padding: "4rem 2rem" }}>
       <h2 style={{ textAlign: "center", color: "#000" }}>Main Features</h2>
@@ -68,4 +68,4 @@ const Features = () => {
   );
 };
 
-export default Features;
+export default team3;

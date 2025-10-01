@@ -1,6 +1,6 @@
 import React from "react";
 
-const VideoSection = () => {
+const team2 = () => {
   return (
     <section style={{ backgroundColor: "#f5f5f5", padding: "60px" }}>
       <div
@@ -40,4 +40,4 @@ const VideoSection = () => {
   );
 };
 
-export default VideoSection;
+export default team2;

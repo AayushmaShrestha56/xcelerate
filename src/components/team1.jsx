@@ -1,6 +1,6 @@
 import React from "react";
 
-const Hero = () => {
+const team1 = () => {
   return (
     <section
       style={{
@@ -21,4 +21,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default team1;

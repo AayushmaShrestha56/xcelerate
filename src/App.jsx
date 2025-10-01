@@ -4,11 +4,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
-import Login from "./components/Login";
+import Login from "./components/login";
 import SignUp from "./components/SingUp";
 import AboutPage from "./pages/AboutPage";
 import ContactUs from "./pages/ContactUs";
-import Team from "./pages/Team";
+import TeamPer from "./pages/TeamPer";
 
 
 function App() {
@@ -63,11 +63,11 @@ function App() {
 
         {/* Team Perfomance Page - includes navbar */}
           <Route
-            path="/team"
+            path="/teamper"
             element={
               <>
                 <Navbar />
-                <Team />
+                <TeamPer />
               </>
             }
           />
@@ -92,4 +92,4 @@ function App() {
   );
 }
 
-export default App;
+export default App;''
