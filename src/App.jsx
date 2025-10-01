@@ -8,6 +8,8 @@ import Login from "./components/Login";
 import SignUp from "./components/SingUp";
 import AboutPage from "./pages/AboutPage";
 import ContactUs from "./pages/ContactUs";
+import Team from "./pages/Team";
+
 
 function App() {
   return (
@@ -54,10 +56,21 @@ function App() {
               <>
                 <Navbar />
                 <AboutPage />
+                
               </>
             }
           />
 
+        {/* Team Perfomance Page - includes navbar */}
+          <Route
+            path="/team"
+            element={
+              <>
+                <Navbar />
+                <Team />
+              </>
+            }
+          />
           {/* Catch all other routes and redirect to home */}
           <Route path="*" element={
             <>

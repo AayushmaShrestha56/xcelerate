@@ -42,7 +42,7 @@ const HeroSection = () => {
             teams to win audiences, customers and trophies.
           </p>
           <button
-            onClick={contactUs}
+             onClick={() => window.location.href = "/contactus"}
             className="mt-10 px-8 py-3 rounded-full bg-pink-500 hover:bg-pink-600 font-bold shadow-lg transition-colors duration-300"
           >
             CONTACT US
