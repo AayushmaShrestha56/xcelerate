@@ -1,6 +1,6 @@
 import React from "react";
 
-const team4 = () => {
+const Team4 = () => {
   return (
     <section
       style={{
@@ -39,4 +39,4 @@ const team4 = () => {
   );
 };
 
-export default team4;
+export default Team4;

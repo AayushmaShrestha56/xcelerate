@@ -1,6 +1,6 @@
 import React from "react";
 
-const team3 = () => {
+const Team3 = () => {
   return (
     <section style={{ padding: "4rem 2rem" }}>
       <h2 style={{ textAlign: "center", color: "#000" }}>Main Features</h2>
@@ -68,4 +68,4 @@ const team3 = () => {
   );
 };
 
-export default team3;
+export default Team3;
