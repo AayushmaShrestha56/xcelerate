@@ -6,7 +6,7 @@ const AboutUsMission = () => {
     <section
       className="boost min-h-screen flex items-center px-6 py-16"
       style={{
-        background: "#333333", // teal gradient background
+        background: "#7b7979ff", // teal gradient background
       }}
     >
       <div className="container boost-flex max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10">
@@ -30,19 +30,19 @@ const AboutUsMission = () => {
 
           <div className="boost-icons grid grid-cols-2 gap-8 text-center text-lg font-medium">
             <div className="flex flex-col items-center gap-2">
-              <span className="text-4xl">📊</span>
+              <span className="text-8xl">📊</span>
               <p>Performance Analysis</p>
             </div>
             <div className="flex flex-col items-center gap-2">
-              <span className="text-4xl">➡️</span>
+              <span className="text-8xl">➡️</span>
               <p>Player Deployment</p>
             </div>
             <div className="flex flex-col items-center gap-2">
-              <span className="text-4xl">⚙️</span>
+              <span className="text-8xl">⚙️</span>
               <p>Competitive Edge</p>
             </div>
             <div className="flex flex-col items-center gap-2">
-              <span className="text-4xl">🔥</span>
+              <span className="text-8xl">🔥</span>
               <p>Enhanced Output</p>
             </div>
           </div>

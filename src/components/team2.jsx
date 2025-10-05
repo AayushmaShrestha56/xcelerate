@@ -31,7 +31,7 @@ const team2 = () => {
             }}
           >
             <video controls>
-              <source src="your-video.mp4" type="video/mp4" />
+              <source src="public\_Xceleratestats.mp4" type="video/mp4" />
             </video>
           </div>
         </div>

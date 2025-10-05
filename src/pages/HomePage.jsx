@@ -5,18 +5,34 @@ import StatsSection from "../components/StatsSection";
 import ReminderAnalyze from "../components/ReminderAnalyze";
 import AboutUs from "../components/AboutUs";
 import AboutUsMission from "../components/AboutUsMission";
-import Newsletter from "../components/Newsletter";
+import ScrollRevealAdvanced from "../components/ScrollRevealAdvanced";
 
 const HomePage = () => {
   return (
     <>
-      <Intro />
-      <VideoSec />
-      <StatsSection />
-      <ReminderAnalyze />
-      <AboutUs />
-      <AboutUsMission />
-      <Newsletter />
+      <ScrollRevealAdvanced direction="up">
+        <Intro />
+      </ScrollRevealAdvanced>
+
+      <ScrollRevealAdvanced direction="left">
+        <VideoSec />
+      </ScrollRevealAdvanced>
+
+      <ScrollRevealAdvanced direction="up">
+        <StatsSection />
+      </ScrollRevealAdvanced>
+
+      <ScrollRevealAdvanced direction="right">
+        <ReminderAnalyze />
+      </ScrollRevealAdvanced>
+
+      <ScrollRevealAdvanced direction="up">
+        <AboutUs />
+      </ScrollRevealAdvanced>
+
+      <ScrollRevealAdvanced direction="up">
+        <AboutUsMission />
+      </ScrollRevealAdvanced>
     </>
   );
 };

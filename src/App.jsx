@@ -9,6 +9,10 @@ import SignUp from "./components/SingUp";
 import AboutPage from "./pages/AboutPage";
 import ContactUs from "./pages/ContactUs";
 import TeamPer from "./pages/TeamPer";
+import ServicePage from "./pages/ServicePage";
+import Footer from "./components/Footer";
+
+
 
 
 function App() {
@@ -23,6 +27,7 @@ function App() {
               <>
                 <Navbar />
                 <HomePage />
+                <Footer />
               </>
             }
           />
@@ -33,14 +38,30 @@ function App() {
               <>
                 <Navbar />
                 <ContactUs/>
+                <Footer />
+
               </>
             } 
             />
+            
+           {/* Service Page - includes navbar */}
+          <Route
+            path="/service"
+            element={
+              <>
+                <Navbar />
+                <ServicePage/>
+                <Footer />
 
+              </>
+            } 
+            />
+            
           {/* Login Page - standalone without navbar */}
           <Route path="/login" element={<>
                <Navbar /> 
                <Login /> </> } />
+
           {/* SignUp Page - standalone with navbar */}
           <Route path="/SignUp" element={<>
                <Navbar /> 
@@ -56,6 +77,8 @@ function App() {
               <>
                 <Navbar />
                 <AboutPage />
+                <Footer />
+
                 
               </>
             }
@@ -68,6 +91,7 @@ function App() {
               <>
                 <Navbar />
                 <TeamPer />
+                <Footer />
               </>
             }
           />

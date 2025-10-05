@@ -4,14 +4,14 @@ const team4 = () => {
   return (
     <section
       style={{
-        background: "linear-gradient(90deg, #ff416c, #ff4b2b)",
+        background: "linear-gradient(90deg, #f96f90ff, #f9765eff)",
         color: "#fff",
         padding: "3rem 2rem",
         display: "flex",
         justifyContent: "space-between",
         flexWrap: "wrap",
         alignItems: "center",
-        height: "500px",
+        height: "400px",
       }}
     >
       <div style={{ flex: 1 }}>
@@ -34,7 +34,7 @@ const team4 = () => {
           SPEAK WITH US
         </button>
       </div>
-      <img src="ii.jpg" alt="Football" style={{ maxWidth: "400px", borderRadius: "8px" }} />
+      <img src="ii.jpg" alt="Football" style={{ maxWidth: "250px", borderRadius: "5px" }} />
     </section>
   );
 };
