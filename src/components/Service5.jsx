@@ -15,9 +15,9 @@ const Section5 = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        padding: "80px 20px",
+        padding: "160px 20px", // extra tall section
         flexWrap: "wrap",
-        gap: "50px",
+        gap: "100px", // more space between text & image
         background: "linear-gradient(135deg, #f5f5f5, #e0e0e0)",
         transition: "all 0.5s ease",
       }}
@@ -25,13 +25,13 @@ const Section5 = () => {
       {/* Text Section */}
       <div
         style={{
-          maxWidth: "420px",
-          fontSize: "1.3rem",
+          maxWidth: "520px", // slightly wider
+          fontSize: "1.7rem", // bigger font
           fontWeight: "bold",
-          lineHeight: "1.8",
+          lineHeight: "2.1",
           color: "#2c3e50",
           opacity: visible ? 1 : 0,
-          transform: visible ? "translateY(0)" : "translateY(50px)",
+          transform: visible ? "translateY(0)" : "translateY(60px)",
           transition: "opacity 1.2s ease, transform 1.2s ease",
         }}
       >
@@ -39,14 +39,14 @@ const Section5 = () => {
         <br />
         <button
           style={{
-            marginTop: "25px",
-            padding: "12px 30px",
+            marginTop: "35px",
+            padding: "18px 40px", // larger button
             background: "#2c3e50",
             color: "white",
             border: "none",
-            borderRadius: "30px",
+            borderRadius: "35px",
             cursor: "pointer",
-            fontSize: "1rem",
+            fontSize: "1.15rem",
             fontWeight: "600",
             letterSpacing: "0.5px",
             transition: "all 0.4s ease",
@@ -71,11 +71,12 @@ const Section5 = () => {
         src={footballField}
         alt="Football Strategy"
         style={{
-          maxWidth: "420px",
-          borderRadius: "15px",
-          boxShadow: "0 6px 18px rgba(0,0,0,0.15)",
+          maxWidth: "600px", // made image bigger
+          width: "100%", // responsive
+          borderRadius: "20px",
+          boxShadow: "0 10px 30px rgba(0,0,0,0.25)", // stronger shadow
           opacity: visible ? 1 : 0,
-          transform: visible ? "translateY(0)" : "translateY(60px)",
+          transform: visible ? "translateY(0)" : "translateY(70px)",
           transition: "opacity 1.4s ease, transform 1.4s ease",
         }}
       />

@@ -35,7 +35,7 @@ export default function FeaturesSection() {
         {features.map(({ imgSrc, alt, title, description }, idx) => (
           <div
             key={idx}
-            className="bg-white rounded-xl p-6 shadow-md w-72 text-center transform transition-transform duration-300 hover:-translate-y-1"
+            className="bg-white rounded-xl p-6 shadow-md w-72 text-center transform transition-transform duration-600 hover:-translate-y-1"
           >
             <img
               src={imgSrc}

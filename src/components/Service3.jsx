@@ -6,22 +6,23 @@ import motionImg from "/public/mo.jpeg";
 const ServiceCard = ({ image, title }) => (
   <div
     style={{
-      background: "white",
-      borderRadius: "12px",
-      boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-      padding: "20px",
+      background: "linear-gradient(135deg, #ffffff, #f8fafc)",
+      borderRadius: "16px",
+      boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
+      padding: "25px",
       width: "260px",
       textAlign: "center",
       transition: "transform 0.4s ease, box-shadow 0.4s ease",
       cursor: "pointer",
+      border: "1px solid rgba(0,0,0,0.05)",
     }}
     onMouseEnter={(e) => {
-      e.currentTarget.style.transform = "translateY(-8px)";
-      e.currentTarget.style.boxShadow = "0 8px 20px rgba(0,0,0,0.2)";
+      e.currentTarget.style.transform = "translateY(-10px)";
+      e.currentTarget.style.boxShadow = "0 12px 30px rgba(14, 165, 233, 0.2)";
     }}
     onMouseLeave={(e) => {
       e.currentTarget.style.transform = "translateY(0)";
-      e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.1)";
+      e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,0,0,0.08)";
     }}
   >
     <img
@@ -29,13 +30,13 @@ const ServiceCard = ({ image, title }) => (
       alt={title}
       style={{
         width: "100%",
-        borderRadius: "10px",
-        marginBottom: "12px",
+        borderRadius: "12px",
+        marginBottom: "15px",
         height: "160px",
         objectFit: "cover",
       }}
     />
-    <h3 style={{ fontSize: "1.05rem", fontWeight: "600", color: "#2c3e50" }}>
+    <h3 style={{ fontSize: "1.1rem", fontWeight: "700", color: "#0f172a" }}>
       {title}
     </h3>
   </div>
@@ -52,36 +53,34 @@ const ServiceSection = () => {
   return (
     <section
       style={{
-        background: "linear-gradient(135deg, #f5f5f5, #e0e0e0)",
-        padding: "80px 20px",
+        background: "linear-gradient(135deg, #f8fafc, #e2e8f0)",
+        padding: "100px 20px",
         textAlign: "center",
       }}
     >
-      {/* Text Section (formerly Service2) */}
+      {/* Text Section */}
       <div
         style={{
           maxWidth: "900px",
-          margin: "0 auto 60px",
+          margin: "0 auto 70px",
           fontWeight: "bold",
-          fontSize: "1.25rem",
-          lineHeight: "1.8",
-          color: "#2c3e50",
+          fontSize: "1.3rem",
+          lineHeight: "1.9",
+          color: "#334155",
           opacity: visible ? 1 : 0,
           transform: visible ? "translateY(0)" : "translateY(40px)",
           transition: "opacity 1.2s ease, transform 1.2s ease",
         }}
       >
-        SUPPORT YOUR CLUB'S FUTURE WITH TAILORED SUCCESSION PLANNING, DETAILED ATHLETE MONITORING,
-        AND PRECISE MOTION TRACKING TECHNOLOGIES — EMPOWERING INFORMED DECISIONS FROM ACADEMY TO
-        FIRST TEAM. OUR ANALYTICS SOLUTIONS HELP YOU UNDERSTAND PLAYER DEVELOPMENT, OPTIMIZE
-        PERFORMANCE, AND BUILD A STRONG FOUNDATION FOR LONG-TERM SUCCESS IN EVERY COMPETITION.
+        SUPPORT YOUR CLUB&apos;S FUTURE WITH TAILORED SUCCESSION PLANNING, DETAILED ATHLETE MONITORING,
+        AND PRECISE MOTION TRACKING TECHNOLOGIES 
       </div>
 
-      {/* Cards Section (formerly Service3) */}
+      {/* Cards Section */}
       <div
         style={{
           display: "flex",
-          gap: "25px",
+          gap: "30px",
           justifyContent: "center",
           flexWrap: "wrap",
         }}

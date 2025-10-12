@@ -1,5 +1,4 @@
-
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 const statsData = [
   { label: "Matches Covered Annually", target: 1000 },
@@ -10,10 +9,35 @@ const statsData = [
 
 const StatsSection = () => {
   const [counts, setCounts] = useState(statsData.map(() => 0));
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting && !hasAnimated) {
+          startCounting();
+          setHasAnimated(true);
+        }
+      },
+      { threshold: 0.3 } // triggers when 30% of section is visible
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, [hasAnimated]);
+
+  const startCounting = () => {
     let animationFrame;
-    const duration = 2000; // animation duration in ms
+    const duration = 2000; // 2 seconds
     const startTime = performance.now();
 
     const animate = (time) => {
@@ -31,10 +55,11 @@ const StatsSection = () => {
 
     animationFrame = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animationFrame);
-  }, []);
+  };
 
   return (
     <section
+      ref={sectionRef}
       className="relative text-white py-20 px-6"
       style={{
         backgroundImage: "url('/home3.png')",
@@ -74,7 +99,9 @@ const StatsSection = () => {
         <div className="flex-1 min-w-[280px] bg-white rounded-xl p-10 grid grid-cols-1 sm:grid-cols-2 gap-8 text-black">
           {statsData.map(({ label }, idx) => (
             <div key={label} className="text-center">
-              <div className="text-4xl font-extrabold">{counts[idx].toLocaleString()}</div>
+              <div className="text-4xl font-extrabold">
+                {counts[idx].toLocaleString()}
+              </div>
               <div className="uppercase mt-2 text-sm text-gray-600">{label}</div>
             </div>
           ))}

@@ -1,27 +1,44 @@
-
 import React from "react";
 
 const AboutUs = () => {
   return (
     <section
-      className="image-section py-16 px-6"
+      className="relative py-16 px-6 overflow-hidden"
       style={{
         backgroundImage: "url('/bg.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         minHeight: "500px",
-        color: "#000",
+        position: "relative",
+        animation: "bgZoom 30s ease-in-out infinite alternate",
       }}
     >
-      <div className="image-content max-w-7xl mx-auto flex flex-wrap items-center gap-10">
-        <div className="image-block flex-shrink-0 w-full md:w-auto max-w-md mx-auto md:mx-0">
+      {/* Animated gradient overlay */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "linear-gradient(-45deg, #f5e6ca, #f3d3bd, #e6e1ff, #d9f4ff)",
+          backgroundSize: "400% 400%",
+          animation: "gradientMove 12s ease infinite",
+          opacity: 0.6,
+          mixBlendMode: "overlay",
+          zIndex: 1,
+        }}
+      ></div>
+
+      {/* Main Content */}
+      <div className="relative z-10 max-w-7xl mx-auto flex flex-wrap items-center gap-10">
+        <div className="flex-shrink-0 w-full md:w-auto max-w-md mx-auto md:mx-0">
           <img
             src="image1.png"
             alt="Football Action"
             className="rounded-xl shadow-lg w-full"
           />
         </div>
-        <div className="text-block flex-1 min-w-[300px]">
+
+        <div className="flex-1 min-w-[300px] text-black">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
             The Best Build Magic
             <br />
@@ -39,6 +56,20 @@ const AboutUs = () => {
           </p>
         </div>
       </div>
+
+      {/* Animation keyframes */}
+      <style>{`
+        @keyframes gradientMove {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+
+        @keyframes bgZoom {
+          from { background-size: 100%; }
+          to { background-size: 110%; }
+        }
+      `}</style>
     </section>
   );
 };

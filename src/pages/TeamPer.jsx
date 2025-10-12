@@ -1,26 +1,28 @@
 import React from "react";
-import Team1 from "../components/team1";
-import Team2 from "../components/team2";
-<<<<<<< HEAD
+import Team1 from "../components/Team1";
+import Team2 from "../components/Team2";
 import Team3 from "../components/Team3";
-import Team4 from "../components/Team4";
-import ScrollRevealAlternate from "../components/ScrollRevealAlternate";
-=======
-import Team3 from "../components/team3";
 import Team4 from "../components/team4";
-
->>>>>>> 555613d0abfb66250dfb87f01e67a0cf7c159b57
+import ScrollRevealAdvanced from "../components/ScrollRevealAdvanced";
 
 const TeamPer = () => {
-  const teams = [<Team1 />, <Team2 />, <Team3 />, <Team4 />];
-
   return (
     <>
-      {teams.map((TeamComponent, index) => (
-        <ScrollRevealAlternate key={index} index={index}>
-          {TeamComponent}
-        </ScrollRevealAlternate>
-      ))}
+      <ScrollRevealAdvanced direction="up">
+        <Team1 />
+      </ScrollRevealAdvanced>
+
+      <ScrollRevealAdvanced direction="left">
+        <Team2 />
+      </ScrollRevealAdvanced>
+
+      <ScrollRevealAdvanced direction="right">
+        <Team3 />
+      </ScrollRevealAdvanced>
+
+      <ScrollRevealAdvanced direction="up">
+        <Team4 />
+      </ScrollRevealAdvanced>
     </>
   );
 };

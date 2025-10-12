@@ -1,13 +1,18 @@
-
 import React from "react";
+import { motion } from "framer-motion";
 
 const AboutUsMission = () => {
+  const icons = [
+    { icon: "📊", text: "Performance Analysis" },
+    { icon: "➡️", text: "Player Deployment" },
+    { icon: "⚙️", text: "Competitive Edge" },
+    { icon: "🔥", text: "Enhanced Output" },
+  ];
+
   return (
     <section
       className="boost min-h-screen flex items-center px-6 py-16"
-      style={{
-        background: "#7b7979ff", // teal gradient background
-      }}
+      style={{ background: "#f5f5f5" }}
     >
       <div className="container boost-flex max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10">
         {/* Left Image */}
@@ -20,7 +25,7 @@ const AboutUsMission = () => {
         </div>
 
         {/* Right Text + Icons */}
-        <div className="boost-text-icons flex flex-col flex-1 text-white">
+        <div className="boost-text-icons flex flex-col flex-1 text-gray-900">
           <div className="boost-text mb-10">
             <h3 className="text-center text-2xl md:text-3xl font-semibold leading-relaxed">
               Track players using video analytics. Gain a competitive edge with
@@ -28,24 +33,25 @@ const AboutUsMission = () => {
             </h3>
           </div>
 
-          <div className="boost-icons grid grid-cols-2 gap-8 text-center text-lg font-medium">
-            <div className="flex flex-col items-center gap-2">
-              <span className="text-8xl">📊</span>
-              <p>Performance Analysis</p>
-            </div>
-            <div className="flex flex-col items-center gap-2">
-              <span className="text-8xl">➡️</span>
-              <p>Player Deployment</p>
-            </div>
-            <div className="flex flex-col items-center gap-2">
-              <span className="text-8xl">⚙️</span>
-              <p>Competitive Edge</p>
-            </div>
-            <div className="flex flex-col items-center gap-2">
-              <span className="text-8xl">🔥</span>
-              <p>Enhanced Output</p>
-            </div>
-          </div>
+          {/* Animated Icons */}
+          <motion.div
+            className="boost-icons grid grid-cols-2 gap-8 text-center text-lg font-medium"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+          >
+            {icons.map((item, index) => (
+              <motion.div
+                key={index}
+                className="flex flex-col items-center gap-2 transform transition-transform duration-500 hover:scale-110"
+                whileHover={{ scale: 1.1, color: "#f97316" }} // orange on hover
+              >
+                <span className="text-8xl">{item.icon}</span>
+                <p>{item.text}</p>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>
