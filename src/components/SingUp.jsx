@@ -5,38 +5,69 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
-  const [messageType, setMessageType] = useState(""); // "error" or "success"
+  const [messageType, setMessageType] = useState("");
+  const [passwordStrength, setPasswordStrength] = useState("");
 
+  // --- Password Validation ---
+  const validatePasswordStrength = (pass) => {
+    const hasUpper = /[A-Z]/.test(pass);
+    const hasLower = /[a-z]/.test(pass);
+    const hasNumber = /[0-9]/.test(pass);
+    const hasSymbol = /[!@#$%^&*(),.?":{}|<>]/.test(pass);
+    const isLong = pass.length >= 8;
+
+    if (!pass) return setPasswordStrength("");
+    if (isLong && hasUpper && hasLower && hasNumber && hasSymbol)
+      setPasswordStrength("Strong password 💪");
+    else if (isLong && (hasUpper || hasNumber || hasSymbol))
+      setPasswordStrength("Moderate password ⚠️ (Add more variety)");
+    else setPasswordStrength("Weak password ❌ (Use capital, number, and symbol)");
+  };
+
+  // --- Signup Handler ---
   const handleSubmit = (e) => {
     e.preventDefault();
     setMessage("");
     setMessageType("");
 
-    if (!email) {
-      showMessage("Please enter your email.", "error");
-      return;
-    }
-    if (!validateEmail(email)) {
-      showMessage("Please enter a valid email address.", "error");
-      return;
-    }
-    if (!password || !confirmPassword) {
-      showMessage("Please enter and confirm your password.", "error");
-      return;
-    }
-    if (password !== confirmPassword) {
-      showMessage("Passwords do not match.", "error");
-      return;
-    }
+    if (!email || !password || !confirmPassword)
+      return showMessage("Please fill all fields.", "error");
 
-    // Simulate async signup
-    showMessage("Signing up...", "");
-    setTimeout(() => {
-      showMessage(`Account created for ${email}!`, "success");
-      setEmail("");
-      setPassword("");
-      setConfirmPassword("");
-    }, 1200);
+    if (!validateEmail(email))
+      return showMessage("Please enter a valid email address.", "error");
+
+    if (password !== confirmPassword)
+      return showMessage("Passwords do not match.", "error");
+
+    const strongEnough =
+      /[A-Z]/.test(password) &&
+      /[a-z]/.test(password) &&
+      /[0-9]/.test(password) &&
+      /[!@#$%^&*(),.?":{}|<>]/.test(password) &&
+      password.length >= 8;
+
+    if (!strongEnough)
+      return showMessage(
+        "Password too weak. Use 8+ characters with capital letters, numbers, and symbols.",
+        "error"
+      );
+
+    // --- Store user in localStorage ---
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const existingUser = users.find(
+      (user) => user.email === email.toLowerCase()
+    );
+
+    if (existingUser) return showMessage("Email already registered.", "error");
+
+    users.push({ email: email.toLowerCase(), password });
+    localStorage.setItem("users", JSON.stringify(users));
+
+    showMessage("Signup successful! You can now log in.", "success");
+    setEmail("");
+    setPassword("");
+    setConfirmPassword("");
+    setPasswordStrength("");
   };
 
   const showMessage = (msg, type) => {
@@ -44,10 +75,8 @@ const SignUp = () => {
     setMessageType(type);
   };
 
-  const validateEmail = (email) => {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email.toLowerCase());
-  };
+  const validateEmail = (email) =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.toLowerCase());
 
   return (
     <div
@@ -63,13 +92,11 @@ const SignUp = () => {
         padding: "20px",
       }}
     >
-      {/* Title */}
       <h1 style={{ textAlign: "center", marginBottom: "2rem" }}>
         BUILD WITH CONFIDENCE <br />
         DEPLOY WITH EASE
       </h1>
 
-      {/* SignUp Form */}
       <div
         style={{
           background: "rgba(255, 255, 255, 0.1)",
@@ -82,6 +109,7 @@ const SignUp = () => {
       >
         <h2>Welcome to XcelerateStats</h2>
         <h1>Create an Account</h1>
+
         <form onSubmit={handleSubmit}>
           <label>Email</label>
           <input
@@ -98,10 +126,31 @@ const SignUp = () => {
             type="password"
             placeholder="Enter your password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => {
+              setPassword(e.target.value);
+              validatePasswordStrength(e.target.value);
+            }}
             style={inputStyle}
             required
           />
+
+          {passwordStrength && (
+            <div
+              style={{
+                marginBottom: "1em",
+                color:
+                  passwordStrength.includes("Strong")
+                    ? "#a8e0ff"
+                    : passwordStrength.includes("Moderate")
+                    ? "#ffe680"
+                    : "#ff8f8f",
+                fontSize: "0.9rem",
+                textAlign: "left",
+              }}
+            >
+              {passwordStrength}
+            </div>
+          )}
 
           <label>Confirm Password</label>
           <input
@@ -115,12 +164,18 @@ const SignUp = () => {
 
           <a
             href="/login"
-            style={{ display: "block", margin: "0.5em 0 1em", color: "#95caff" }}
+            style={{
+              display: "block",
+              margin: "0.5em 0 1em",
+              color: "#95caff",
+            }}
           >
             Already have an account? Log In
           </a>
 
-          <button type="submit">Sign Up</button>
+          <button type="submit" style={buttonStyle}>
+            Sign Up
+          </button>
         </form>
 
         {message && (
@@ -145,7 +200,6 @@ const SignUp = () => {
   );
 };
 
-// Shared input styles
 const inputStyle = {
   width: "100%",
   padding: "0.7em 1em",
@@ -156,6 +210,18 @@ const inputStyle = {
   outline: "none",
   background: "rgba(255, 255, 255, 0.15)",
   color: "#034569",
+};
+
+const buttonStyle = {
+  width: "100%",
+  background: "linear-gradient(90deg, #2563eb, #0891b2)",
+  border: "none",
+  padding: "0.9em",
+  borderRadius: "10px",
+  color: "white",
+  fontWeight: "bold",
+  cursor: "pointer",
+  transition: "all 0.3s ease",
 };
 
 export default SignUp;

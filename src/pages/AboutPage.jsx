@@ -8,10 +8,9 @@ import ScrollRevealAdvanced from "../components/ScrollRevealAdvanced";
 const AboutPage = () => {
   return (
     <>
-      <ScrollRevealAdvanced direction="up">
+      
         <About0 />
-      </ScrollRevealAdvanced>
-
+      
       <ScrollRevealAdvanced direction="left">
         <About1 />
       </ScrollRevealAdvanced>

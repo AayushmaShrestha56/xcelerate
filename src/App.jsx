@@ -4,13 +4,18 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
-import Login from "./components/login";
+import Login from "./components/Login";
 import SignUp from "./components/SingUp";
 import AboutPage from "./pages/AboutPage";
 import ContactUs from "./pages/ContactUs";
 import TeamPer from "./pages/TeamPer";
 import ServicePage from "./pages/ServicePage";
 import Footer from "./components/Footer";
+import Dashboard from "./components/dashboard";
+import Dashboard1 from "./components/Dashboard1";
+import Dashboard2 from "./components/Dashboard2";
+
+
 
 
 
@@ -62,6 +67,16 @@ function App() {
                <Navbar /> 
                <Login /> </> } />
 
+                 {/* Dashboard1 Page - standalone without navbar */}
+          <Route path="/dashboard1" element={<>
+               <Navbar /> 
+               <Dashboard1 /> </> } />
+
+            {/* Dashboard1 Page - standalone without navbar */}
+          <Route path="/dashboard2" element={<>
+               <Navbar /> 
+               <Dashboard2 /> </> } />
+
           {/* SignUp Page - standalone with navbar */}
           <Route path="/SignUp" element={<>
                <Navbar /> 
@@ -95,6 +110,11 @@ function App() {
               </>
             }
           />
+          {/* Dashboard Page - standalone without navbar */}
+          <Route path="/dashboard" element={<>
+               <Navbar /> 
+               <Dashboard /> </> } />
+
           {/* Catch all other routes and redirect to home */}
           <Route path="*" element={
             <>
@@ -116,4 +136,4 @@ function App() {
   );
 }
 
-export default App;''
+export default App;'' 

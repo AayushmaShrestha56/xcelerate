@@ -4,33 +4,25 @@ import { motion } from "framer-motion";
 const HeroSection = () => {
   return (
     <div className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden bg-black">
-      {/* Trapezoid-Shaped Video */}
-      <motion.div
-        className="absolute inset-0 flex items-center justify-center"
-        initial={{ scale: 1.05, opacity: 0 }}
+      {/* Full Background Video */}
+      <motion.video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+        initial={{ scale: 1.1, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 2, ease: "easeOut" }}
+        transition={{ duration: 2, ease: 'easeOut' }}
       >
-        <motion.video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-[100%] md:w-[90%] h-[90vh] object-cover shadow-[0_0_80px_rgba(255,0,100,0.2)]"
-          style={{
-            clipPath:
-              "polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)", // Right trapezoid shape
-            borderRadius: "20px",
-          }}
-        >
-          <source src="/1008.mp4" type="video/mp4" />
-        </motion.video>
-      </motion.div>
+        <source src="/1008.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </motion.video>
 
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent rounded-[20px] pointer-events-none"></div>
+      {/* Gradient overlay for contrast */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent pointer-events-none"></div>
 
-      {/* Floating glow */}
+      {/* Floating glow effect */}
       <motion.div
         className="absolute w-[28rem] h-[28rem] bg-pink-500/25 rounded-full blur-3xl mix-blend-screen"
         animate={{
@@ -41,11 +33,11 @@ const HeroSection = () => {
         transition={{
           duration: 10,
           repeat: Infinity,
-          ease: "easeInOut",
+          ease: 'easeInOut',
         }}
       />
 
-      {/* Text content */}
+      {/* Hero Text */}
       <div className="relative z-10 text-center text-white max-w-3xl">
         <h1 className="text-5xl md:text-7xl font-extrabold leading-tight drop-shadow-2xl">
           THERE&apos;S MAGIC IN <br />
@@ -53,7 +45,7 @@ const HeroSection = () => {
         </h1>
 
         <motion.button
-          onClick={() => (window.location.href = "/contactus")}
+          onClick={() => (window.location.href = '/contactus')}
           className="mt-10 px-10 py-4 rounded-full bg-gradient-to-r from-red-500 to-pink-600 hover:from-pink-600 hover:to-red-500 font-bold shadow-lg transition-all duration-300"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

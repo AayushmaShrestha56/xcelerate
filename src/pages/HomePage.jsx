@@ -10,9 +10,9 @@ import ScrollRevealAdvanced from "../components/ScrollRevealAdvanced";
 const HomePage = () => {
   return (
     <>
-      <ScrollRevealAdvanced direction="up">
+      
         <Intro />
-      </ScrollRevealAdvanced>
+     
 
       <ScrollRevealAdvanced direction="left">
         <VideoSec />
