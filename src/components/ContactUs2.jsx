@@ -2,8 +2,8 @@ import React from "react";
 
 const ContactFormSection = () => {
   const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Message sent!");
+    // Allow Web3Forms to handle actual submission
+    // e.preventDefault();  ❌ Remove this to let Web3Forms work
   };
 
   const inputStyle = {
@@ -29,29 +29,37 @@ const ContactFormSection = () => {
         height: "600px",
       }}
     >
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={handleSubmit}
+        action="https://api.web3forms.com/submit"
+        method="POST"
+      >
+        {/* REQUIRED WEB3FORMS KEY */}
+        <input type="hidden" name="access_key" value="6f8a2544-3286-45f9-88bf-e53985cc35d9" />
+
         <h3 style={{ textAlign: "center" }}>SEND US A MESSAGE</h3>
         <p style={{ textAlign: "center", marginBottom: "2rem" }}>
           How can we help you transform your business into something extraordinary?
         </p>
 
         <div className="form-row" style={{ display: "flex", gap: "1rem", marginBottom: "1rem" }}>
-          <input type="text" placeholder="First Name" style={inputStyle} required />
-          <input type="text" placeholder="Last Name" style={inputStyle} required />
+          <input type="text" placeholder="First Name" name="first_name" style={inputStyle} required />
+          <input type="text" placeholder="Last Name" name="last_name" style={inputStyle} required />
         </div>
 
         <div className="form-row" style={{ display: "flex", gap: "1rem", marginBottom: "1rem" }}>
-          <input type="email" placeholder="Business Email" style={inputStyle} required />
-          <input type="tel" placeholder="Phone Number" style={inputStyle} required />
+          <input type="email" placeholder="Business Email" name="email" style={inputStyle} required />
+          <input type="tel" placeholder="Phone Number" name="phone" style={inputStyle} required />
         </div>
 
         <div className="form-row" style={{ display: "flex", gap: "1rem", marginBottom: "1rem" }}>
-          <input type="text" placeholder="Company" style={inputStyle} required />
-          <input type="text" placeholder="Industry" style={inputStyle} required />
+          <input type="text" placeholder="Company" name="company" style={inputStyle} required />
+          <input type="text" placeholder="Industry" name="industry" style={inputStyle} required />
         </div>
 
         <textarea
           placeholder="Message"
+          name="message"
           style={{
             width: "100%",
             padding: "1rem",

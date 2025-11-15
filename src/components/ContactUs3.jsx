@@ -4,6 +4,7 @@ import { Mail, Phone, MapPin } from "lucide-react";
 const ContactInfoFooter = () => {
   return (
     <>
+    
       {/* CONTACT INFO SECTION */}
       <section className="pt-48 pb-16 px-6 bg-gradient-to-b from-[#f7fafc] to-[#e8f0f8] text-center">
         <h2 className="text-5xl md:text-6xl font-extrabold text-[#1a365d] mb-8 tracking-wide">
@@ -52,6 +53,7 @@ const ContactInfoFooter = () => {
             <label className="text-sm text-blue-100">
               <input type="checkbox" className="mr-2 accent-blue-300" /> I agree to receive updates
             </label>
+            
             <button className="mt-3 px-8 py-3 bg-gradient-to-r from-[#5a90c7] to-[#4e7ea8] rounded-full font-bold text-white shadow-md hover:opacity-90 hover:shadow-lg transition-all duration-300">
               Sign Me Up!
             </button>
