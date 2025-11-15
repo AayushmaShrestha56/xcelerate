@@ -38,31 +38,33 @@ const Section5 = () => {
         LET’S TALK ABOUT HELPING YOU ACHIEVE YOUR ON-FIELD & OFF-FIELD OBJECTIVES
         <br />
         <button
-          style={{
-            marginTop: "35px",
-            padding: "18px 40px", // larger button
-            background: "#2c3e50",
-            color: "white",
-            border: "none",
-            borderRadius: "35px",
-            cursor: "pointer",
-            fontSize: "1.15rem",
-            fontWeight: "600",
-            letterSpacing: "0.5px",
-            transition: "all 0.4s ease",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.background = "#1a252f";
-            e.currentTarget.style.boxShadow = "0 0 15px rgba(44, 62, 80, 0.6)";
-            e.currentTarget.style.transform = "scale(1.05)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = "#2c3e50";
-            e.currentTarget.style.boxShadow = "none";
-            e.currentTarget.style.transform = "scale(1)";
-          }}
-        >
-          SPEAK WITH US
+           style={{
+        marginTop: "35px",
+        padding: "18px 40px",
+        background: "#2c3e50",
+        color: "white",
+        border: "none",
+        borderRadius: "35px",
+        cursor: "pointer",
+        fontSize: "1.15rem",
+        fontWeight: "600",
+        letterSpacing: "0.5px",
+        transition: "all 0.4s ease",
+      }}
+      onClick={() => (window.location.href = '/contactus')}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.background = "#1a252f";
+        e.currentTarget.style.boxShadow = "0 0 15px rgba(44, 62, 80, 0.6)";
+        e.currentTarget.style.transform = "scale(1.05)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.background = "#2c3e50";
+        e.currentTarget.style.boxShadow = "none";
+        e.currentTarget.style.transform = "scale(1)";
+      }}
+    >
+      SPEAK WITH US
+    
         </button>
       </div>
 

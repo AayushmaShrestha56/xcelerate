@@ -32,6 +32,8 @@ const Team4 = () => {
           to improve how each department works.”
         </p>
         <button
+          onClick={() => (window.location.href = '/contactus')}
+
           style={{
             background: "black",
             color: "white",

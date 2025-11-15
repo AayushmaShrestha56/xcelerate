@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { ArrowUp } from "lucide-react"; // uses lucide-react icons
+import { ArrowUp } from "lucide-react";
+import { NavLink } from "react-router-dom"; // Needed for the added links
 
 const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -27,32 +28,27 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-900 text-white py-10 relative">
-      {/* Footer Links */}
-      <div className="footer-links grid grid-cols-1 md:grid-cols-2 gap-8 text-left max-w-4xl mx-auto mb-8">
-        <div>
-          <h4 className="text-lg font-bold mb-3">Learn More</h4>
-          <ul className="space-y-2 text-gray-300">
-            <li className="hover:text-white cursor-pointer">Interactive Product Finder</li>
-            <li className="hover:text-white cursor-pointer">Learn About OPTA</li>
-            <li className="hover:text-white cursor-pointer">AI in Sport</li>
-            <li className="hover:text-white cursor-pointer">News & Resources</li>
-          </ul>
-        </div>
+    <footer className="bg-gray-900 text-white py-10 text-center relative">
 
-        <div>
-          <h4 className="text-lg font-bold mb-3">About Stats Perform</h4>
-          <ul className="space-y-2 text-gray-300">
-            <li className="hover:text-white cursor-pointer">Leadership</li>
-            <li className="hover:text-white cursor-pointer">Press Coverage</li>
-            <li className="hover:text-white cursor-pointer">Careers</li>
-            <li className="hover:text-white cursor-pointer">Partnership Program</li>
-          </ul>
-        </div>
+      
+
+      {/* Main Menu */}
+      <nav className="space-x-6 text-lg mb-5">
+        <NavLink to="/">HOME</NavLink>
+        <NavLink to="/about">ABOUT</NavLink>
+        <NavLink to="/service">SERVICE</NavLink>
+        <NavLink to="/teamper">TEAM PERFORMANCE</NavLink>
+      </nav>
+
+      {/* Extra Links */}
+      <div className="space-x-6 text-lg mb-5">
+        <NavLink to="/SignUp">SignUp</NavLink>
+        <NavLink to="/contactus">Contact</NavLink>
+        <NavLink to="/login">Log In</NavLink>
       </div>
 
       {/* Copyright */}
-      <p className="text-center text-sm text-gray-400">
+      <p className="text-center text-sm text-gray-400 mt-3">
         © 2025 Stats Perform
       </p>
 
