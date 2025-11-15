@@ -1,5 +1,5 @@
 import React from "react";
-import Service1 from "../components/service1";
+import Service1 from "../components/Service1";
 import Service3 from "../components/Service3";
 import Service4 from "../components/Service4";
 import Service5 from "../components/Service5";

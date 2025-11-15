@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import successionImg from "/public/s1.jpeg";
-import athleteImg from "/public/a1.jpeg";
-import motionImg from "/public/mo.jpeg";
+const successionImg = "https://images.pexels.com/photos/3865899/pexels-photo-3865899.jpeg?auto=compress&cs=tinysrgb&w=800";
+const athleteImg = "https://images.pexels.com/photos/618612/pexels-photo-618612.jpeg?auto=compress&cs=tinysrgb&w=800";
+const motionImg = "https://images.pexels.com/photos/274506/pexels-photo-274506.jpeg?auto=compress&cs=tinysrgb&w=800";
 
 const ServiceCard = ({ image, title }) => (
   <div

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import footballField from "/public/f1.jpeg";
+const footballField = "https://images.pexels.com/photos/399187/pexels-photo-399187.jpeg?auto=compress&cs=tinysrgb&w=800";
 
 const Section5 = () => {
   const [visible, setVisible] = useState(false);
