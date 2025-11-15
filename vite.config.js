@@ -12,10 +12,10 @@ export default defineConfig({
     port: 5173, // Frontend port (you can change this if needed)
     proxy: {
       '/api': {
-        target: 'http://localhost:5000', // 👈 Your backend server
+        target: 'http://localhost:4000', // Backend server (matches Backend/server.js PORT default 4000)
         changeOrigin: true,
         secure: false,
-        rewrite: (path) => path.replace(/^\/api/, ''), // removes '/api' before forwarding
+        // Keep the '/api' prefix so requests like '/api/auth' forward as '/api/auth'
       },
     },
   },
