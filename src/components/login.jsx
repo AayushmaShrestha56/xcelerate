@@ -33,7 +33,6 @@ const Login = () => {
 
       localStorage.setItem("userInfo", JSON.stringify(data.user));
       showMessage(`Welcome back, ${data.user.name}!`, "success");
-
       setTimeout(() => navigate("/dashboard"), 1000);
     } catch (err) {
       showMessage(err.message, "error");
