@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XcelerateStats - Presentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: white;
+            overflow: hidden;
+        }
+
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .slide {
+            display: none;
+            width: 90%;
+            max-width: 1200px;
+            padding: 60px;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #00d4ff, #ff006e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: #00d4ff;
+        }
+
+        h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #ffd700;
+        }
+
+        p, li {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .feature-card h4 {
+            font-size: 1.6rem;
+            color: #00d4ff;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .tech-badge {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.3rem;
+            border: 2px solid #00d4ff;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 15px;
+        }
+
+        button {
+            background: rgba(0, 212, 255, 0.2);
+            border: 2px solid #00d4ff;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #00d4ff;
+            transform: scale(1.05);
+        }
+
+        .slide-number {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            font-size: 1.2rem;
+            color: #888;
+        }
+
+        ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        li {
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #00d4ff;
+            font-size: 1.5rem;
+        }
+
+        .highlight {
+            color: #ffd700;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            color: #aaa;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="slide active">
+            <h1>XcelerateStats</h1>
+            <p class="subtitle">Sports Analytics Platform</p>
+            <p style="margin-top: 40px; font-size: 1.6rem;">Transform sporting magic into sports content, analysis and insight with AI-powered football performance tracking</p>
+            <div style="margin-top: 60px;">
+                <p style="font-size: 1.3rem; color: #888;">Capstone Project | Football Performance Analysis System</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>Project Overview</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Mission</h4>
+                    <p>Bridge the gap between professional-level analytics and grassroots football by making advanced performance insights accessible and affordable</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Vision</h4>
+                    <p>Empower every player and coach with tools to unlock potential, improve performance, and make smarter decisions</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Target Audience</h4>
+                    <p>Players, coaches, and clubs at every level seeking professional-grade analytics</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Core Value</h4>
+                    <p>AI-powered, real-time performance analysis with easy data entry and engaging visualizations</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>Main Features</h2>
+            <ul>
+                <li><span class="highlight">Performance Analysis</span> - Real-time data insights to track and enhance player output</li>
+                <li><span class="highlight">Win-Loss Prediction</span> - Predict outcomes using AI and machine learning models</li>
+                <li><span class="highlight">Training Recommendations</span> - Customized drills and suggestions based on match data</li>
+                <li><span class="highlight">Match Management</span> - Comprehensive dashboard to manage and analyze multiple matches</li>
+                <li><span class="highlight">Team Performance Tracking</span> - Monitor team metrics, player statistics, and performance trends</li>
+                <li><span class="highlight">Fantasy Dashboard</span> - Interactive team selection and management interface</li>
+            </ul>
+        </div>
+
+        <div class="slide">
+            <h2>Key Pages & Routes</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Home Page</h4>
+                    <p>Hero section with video background, stats showcase, and feature highlights</p>
+                </div>
+                <div class="feature-card">
+                    <h4>About Page</h4>
+                    <p>Company vision, team introduction, and platform benefits</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Services</h4>
+                    <p>Succession planning, athlete monitoring, and motion tracking services</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Team Performance</h4>
+                    <p>Xcelerate Vision showcase with performance analysis features</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Dashboard</h4>
+                    <p>Match management system with detailed analytics</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Contact Us</h4>
+                    <p>Contact form and business inquiry system</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>Dashboard Features</h2>
+            <h3>Three-Tier Dashboard System</h3>
+            <ul>
+                <li><span class="highlight">Dashboard (Main)</span> - Match listing with 12+ matches, sidebar navigation, visual match cards with scores and dates</li>
+                <li><span class="highlight">Dashboard1</span> - Fantasy team management with player selection, league rankings, gameweek tracking, and substitute management</li>
+                <li><span class="highlight">Dashboard2</span> - Enhanced fantasy interface with player photos, visual pitch layout, league statistics, and team badge generator</li>
+            </ul>
+            <p style="margin-top: 40px; font-size: 1.3rem;">Each dashboard includes comprehensive data visualization and real-time updates</p>
+        </div>
+
+        <div class="slide">
+            <h2>Authentication System</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>User Registration</h4>
+                    <p>Secure signup with email validation, password strength checking, and user profile creation</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Login System</h4>
+                    <p>JWT-based authentication with session management and protected routes</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Password Security</h4>
+                    <p>Real-time password strength validation requiring uppercase, lowercase, numbers, and special characters</p>
+                </div>
+                <div class="feature-card">
+                    <h4>User Experience</h4>
+                    <p>Smooth navigation between auth pages with clear error messaging and success feedback</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>UI/UX Highlights</h2>
+            <ul>
+                <li><span class="highlight">Responsive Design</span> - Mobile-first approach with breakpoints for all devices</li>
+                <li><span class="highlight">Smooth Animations</span> - Framer Motion integration for engaging transitions and scroll reveals</li>
+                <li><span class="highlight">Modern Aesthetics</span> - Gradient backgrounds, glassmorphism effects, and professional color schemes</li>
+                <li><span class="highlight">Interactive Elements</span> - Hover states, transform effects, and micro-interactions throughout</li>
+                <li><span class="highlight">Video Integration</span> - Full-screen video backgrounds and demo videos</li>
+                <li><span class="highlight">Data Visualization</span> - Stats counters, progress indicators, and performance charts</li>
+            </ul>
+        </div>
+
+        <div class="slide">
+            <h2>Technology Stack</h2>
+            <div class="tech-stack">
+                <div class="tech-badge">React 19.1.0</div>
+                <div class="tech-badge">Vite 6.3.5</div>
+                <div class="tech-badge">React Router 6.30.1</div>
+                <div class="tech-badge">Tailwind CSS 4.1.8</div>
+                <div class="tech-badge">Framer Motion 12.23.22</div>
+                <div class="tech-badge">Lucide React Icons</div>
+                <div class="tech-badge">Recharts 3.2.1</div>
+                <div class="tech-badge">ESLint</div>
+            </div>
+            <h3 style="margin-top: 60px;">Backend Integration Ready</h3>
+            <p>Vite proxy configured for API calls to backend server (port 4000)</p>
+            <p>Authentication endpoints: /api/auth/login, /api/auth/register</p>
+        </div>
+
+        <div class="slide">
+            <h2>Component Architecture</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Reusable Components</h4>
+                    <p>Navbar, Footer, ScrollReveal, and feature cards for consistent UI</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Page Components</h4>
+                    <p>Modular page structure with dedicated components for each section</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Animation Components</h4>
+                    <p>ScrollReveal, ScrollRevealAdvanced, and ScrollRevealAlternate for dynamic content</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Dashboard Components</h4>
+                    <p>Specialized components for match management and fantasy leagues</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>Key Functionalities</h2>
+            <ul>
+                <li><span class="highlight">Real-time Stats Counter</span> - Animated counting on scroll for engagement metrics</li>
+                <li><span class="highlight">Match Card System</span> - Visual representation of matches with scores and metadata</li>
+                <li><span class="highlight">Player Management</span> - Fantasy team creation with drag-and-drop interface</li>
+                <li><span class="highlight">League Rankings</span> - Display multiple leagues with user rankings and points</li>
+                <li><span class="highlight">Form Validation</span> - Client-side validation for contact and auth forms</li>
+                <li><span class="highlight">Smooth Scroll</span> - Back-to-top button with smooth scroll behavior</li>
+                <li><span class="highlight">Route Protection</span> - Navigation guards for authenticated routes</li>
+            </ul>
+        </div>
+
+        <div class="slide">
+            <h2>Design Principles</h2>
+            <ul>
+                <li><span class="highlight">Professional Gradient Themes</span> - Blue and teal gradients avoiding purple/indigo</li>
+                <li><span class="highlight">Clear Visual Hierarchy</span> - Typography scale from 0.85rem to 4rem</li>
+                <li><span class="highlight">Consistent Spacing</span> - 8px spacing system throughout</li>
+                <li><span class="highlight">Accessible Contrast</span> - Readable text on all backgrounds</li>
+                <li><span class="highlight">Mobile-First</span> - Responsive breakpoints for optimal viewing</li>
+                <li><span class="highlight">Performance Optimized</span> - Lazy loading and code splitting</li>
+            </ul>
+        </div>
+
+        <div class="slide">
+            <h2>Future Enhancements</h2>
+            <ul>
+                <li>Integration with backend API for live data</li>
+                <li>Real-time match updates via WebSocket</li>
+                <li>Advanced data visualization with Recharts</li>
+                <li>Video analysis upload and processing</li>
+                <li>AI-powered performance predictions</li>
+                <li>Mobile app development</li>
+                <li>Social features and team collaboration</li>
+                <li>Export reports and analytics</li>
+            </ul>
+        </div>
+
+        <div class="slide">
+            <h1>Thank You</h1>
+            <p class="subtitle">Questions & Discussion</p>
+            <div style="margin-top: 80px;">
+                <p style="font-size: 1.5rem;">XcelerateStats - Transforming Football Analytics</p>
+                <p style="font-size: 1.3rem; color: #888; margin-top: 20px;">Contact: xceleratestats@gmail.com</p>
+                <p style="font-size: 1.3rem; color: #888;">Location: Dhobidhara, Kathmandu</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-number">
+        <span id="current-slide">1</span> / <span id="total-slides">13</span>
+    </div>
+
+    <div class="navigation">
+        <button id="prev-btn" onclick="previousSlide()">← Previous</button>
+        <button id="next-btn" onclick="nextSlide()">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        document.getElementById('total-slides').textContent = totalSlides;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            document.getElementById('current-slide').textContent = currentSlide + 1;
+
+            document.getElementById('prev-btn').disabled = currentSlide === 0;
+            document.getElementById('next-btn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                showSlide(currentSlide + 1);
+            }
+        }
+
+        function previousSlide() {
+            if (currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') previousSlide();
+        });
+
+        document.getElementById('prev-btn').disabled = true;
+    </script>
+</body>
+</html>

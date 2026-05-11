@@ -1,6 +1,6 @@
 import React from "react";
 
-const AboutUs = () => {
+const VideoSec = () => {
   return (
     <section
       className="relative py-16 px-6 overflow-hidden"

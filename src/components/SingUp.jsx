@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -7,6 +8,7 @@ const SignUp = () => {
   const [message, setMessage] = useState("");
   const [messageType, setMessageType] = useState("");
   const [passwordStrength, setPasswordStrength] = useState("");
+  const navigate = useNavigate();
 
   // --- Password Validation ---
   const validatePasswordStrength = (pass) => {
@@ -24,8 +26,16 @@ const SignUp = () => {
     else setPasswordStrength("Weak password ❌ (Use capital, number, and symbol)");
   };
 
+  const showMessage = (msg, type) => {
+    setMessage(msg);
+    setMessageType(type);
+  };
+
+  const validateEmail = (email) =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.toLowerCase());
+
   // --- Signup Handler ---
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage("");
     setMessageType("");
@@ -52,31 +62,29 @@ const SignUp = () => {
         "error"
       );
 
-    // --- Store user in localStorage ---
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-    const existingUser = users.find(
-      (user) => user.email === email.toLowerCase()
-    );
+    try {
+      const res = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: email.split("@")[0], email, password }),
+      });
 
-    if (existingUser) return showMessage("Email already registered.", "error");
+      const data = await res.json();
 
-    users.push({ email: email.toLowerCase(), password });
-    localStorage.setItem("users", JSON.stringify(users));
+      if (!res.ok) throw new Error(data.message || "Signup failed");
 
-    showMessage("Signup successful! You can now log in.", "success");
-    setEmail("");
-    setPassword("");
-    setConfirmPassword("");
-    setPasswordStrength("");
+      localStorage.setItem("userInfo", JSON.stringify(data.user));
+      showMessage("Signup successful! Redirecting to login...", "success");
+
+      setTimeout(() => navigate("/login"), 1500);
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
+      setPasswordStrength("");
+    } catch (err) {
+      showMessage(err.message, "error");
+    }
   };
-
-  const showMessage = (msg, type) => {
-    setMessage(msg);
-    setMessageType(type);
-  };
-
-  const validateEmail = (email) =>
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.toLowerCase());
 
   return (
     <div

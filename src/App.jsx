@@ -4,14 +4,14 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
-import Login from "./components/Login";
+import Login from "./components/login";
 import SignUp from "./components/SingUp";
 import AboutPage from "./pages/AboutPage";
 import ContactUs from "./pages/ContactUs";
 import TeamPer from "./pages/TeamPer";
 import ServicePage from "./pages/ServicePage";
 import Footer from "./components/Footer";
-import Dashboard from "./components/dashboard";
+import Dashboard from "./components/Dashboard";
 import Dashboard1 from "./components/Dashboard1";
 import Dashboard2 from "./components/Dashboard2";
 

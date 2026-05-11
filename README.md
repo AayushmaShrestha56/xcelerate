@@ -34,5 +34,10 @@ npm run dev
 Notes:
 - The Vite dev server runs on `http://localhost:5173` and the backend default port is `4000`.
 - Vite's proxy forwards `/api/*` requests to the backend, so frontend code can call `/api/auth`, `/api/performance`, etc., without specifying the backend host.
+<<<<<<< HEAD
 # Football
 # Football
+=======
+# Xcelerate-Stats
+# Xcelerate-Stats
+>>>>>>> 32c04b5adf17983916a16d872e885e3f1a8ef094
